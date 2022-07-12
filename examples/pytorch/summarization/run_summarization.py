@@ -721,9 +721,6 @@ def main():
         trainer.push_to_hub(**kwargs)
     else:
         trainer.create_model_card(**kwargs)
-    print("*****************************************")
-    print(trainer.state.log_history)
-    print("*****************************************")
     return results
 
 
