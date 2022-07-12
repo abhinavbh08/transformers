@@ -640,7 +640,7 @@ def main():
         eval_dataset=eval_dataset if training_args.do_eval else None,
         tokenizer=tokenizer,
         data_collator=data_collator,
-        compute_metrics=compute_metrics if training_args.predict_with_generate else None,
+        compute_metrics=None,
     )
 
     # Training
@@ -721,7 +721,9 @@ def main():
         trainer.push_to_hub(**kwargs)
     else:
         trainer.create_model_card(**kwargs)
-
+    print("*****************************************")
+    print(trainer.state.log_history)
+    print("*****************************************")
     return results
 
 
